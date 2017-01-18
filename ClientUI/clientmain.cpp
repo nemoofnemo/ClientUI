@@ -98,8 +98,8 @@ void ClientMain::doSend(void){
 	ui.plainTextEdit_2->appendPlainText(output);
 
 	if (ui.recvCheckBox->isChecked()) {
-		char * data = new char[4096];
-		int ret = recv(sockClient, data, 4096, 0);
+		char * data = new char[0x100000];
+		int ret = recv(sockClient, data, 0x100000, 0);
 		if (ret > 0) {
 			ui.plainTextEdit_2->appendPlainText("[Recv]:content:");
 			ui.plainTextEdit_2->appendPlainText(QString(data));
